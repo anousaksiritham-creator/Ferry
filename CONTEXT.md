@@ -33,6 +33,7 @@ Formal report layout (A4-width paper, numbered clauses 1.3, 2.1.1, 3.2.1…), Da
 - **Section 3.1** gates figure: one dot passes 3 inspection gates (150k → 350k → 500k), plus the expandable installment table.
 - Sections 4 (risks, next steps), 5 (approval signature blocks), Annexes A (shuttle timetable + image), B (assumptions), C (items to agree with the port).
 - Motion style: short, one-time, Ant Motion timings (150/300/450/600 ms); kinetic typography inspired by a reference motion reel. Static in print and for reduced-motion users.
+- **Phone layout:** page fits the screen (wide tables scroll inside their own box with an edge shadow; the installment Progress column is hidden on phones), cover sized with 100dvh and safe areas, "SWIPE UP ↑" hint on touch screens, figures 1–3 redrawn for narrow screens (redrawn on rotate), shorter motion and no blur on phones, 40 px tap targets, and a "≡ Sections" drop-down menu.
 - Fonts from Google Fonts: Noto Sans/Lao/SC, Archivo Black, Instrument Serif (italic), IBM Plex Mono.
 
 ## Deployment
