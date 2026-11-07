@@ -23,11 +23,24 @@ Handoff note so any session can resume this work. Main deliverable: `ferry_repor
 - Result: 96,193 baht/year → 480,966 over 5 years = **96%** of the contribution → payback **5.2 years** → suggest a contract of at least 6 years.
 - Sensitivity: at 14 trips/day payback is about 2 years.
 
-## Features in `ferry_report.html`
-Animated hero (waves + ferry), live crossing view linked to the trips slider, draggable payback chart (drag the marker to change contract years), sensitivity chart, build-stage timeline with clickable installments and Play, scroll reveals and count-ups, language fade. Reduced-motion and print are static. Single file, no build step.
+## Features in `ferry_report.html` (current design, 2026-11-07)
+Formal report layout (A4-width paper, numbered clauses 1.3, 2.1.1, 3.2.1…), Dansavanh logo, three languages.
+- **Cover, 2 steps:** opens on a dark screen (dot → ring → Dansavanh mark). Scroll once → logo + report title. Scroll again → the document. Arrow/Space keys and swipe also work; scrolling up inside the document does not return to the cover. Printed PDF starts with a cover page.
+- **Executive summary** table with key figures (blur-in on reveal).
+- **Section dividers** 01–04 as full-width colour bands (green, blue, lime, black) with large numerals.
+- **Section 2.2** editable calculator (inputs a–h, formula, results, verdict) and payback chart with a draggable contract-years marker.
+- **Section 2.3** "race" figure: dots run to 100% recovery for 4/8/14 trips/day, speed proportional to years; plus the sensitivity table.
+- **Section 3.1** gates figure: one dot passes 3 inspection gates (150k → 350k → 500k), plus the expandable installment table.
+- Sections 4 (risks, next steps), 5 (approval signature blocks), Annexes A (shuttle timetable + image), B (assumptions), C (items to agree with the port).
+- Motion style: short, one-time, Ant Motion timings (150/300/450/600 ms); kinetic typography inspired by a reference motion reel. Static in print and for reduced-motion users.
+- Fonts from Google Fonts: Noto Sans/Lao/SC, Archivo Black, Instrument Serif (italic), IBM Plex Mono.
+
+## Deployment
+- GitHub Pages via `.github/workflows/static.yml` (deploys the whole repo on every push to `main`).
+- `index.html` is a copy of `ferry_report.html` so the site root opens the report. Keep both in sync.
 
 ## Open items / TBC
-- Currency of the 30,000 price (LAK vs baht) and whether 4 trips/day is the right count.
+- Trip data confirmed by the user: 4 trips/day + 2 executive cars, 30,000 LAK per car per trip, 683 LAK per baht, 5-year contract.
 - Hull vs engine split of the 500,000 baht (from the port).
 - Discount percentage, passage term in years, warranty length (12 months placeholder), 30-day delay limit.
 - The user's two WhatsApp voice notes (`.ogg`, 2026-11-06) could not be transcribed (no speech model available offline), so their content is not reflected. Please re-send as text.
@@ -39,10 +52,12 @@ Animated hero (waves + ferry), live crossing view linked to the trips slider, dr
 - Consultant; prefers Lao/English/Chinese deliverables for management.
 
 ## Files
-- `ferry_report.html` – the report (logo embedded)
+- `ferry_report.html` – the report (logo, mark and timetable embedded)
+- `index.html` – same file, site root for GitHub Pages
 - `assets/dansavanh-logo.png` – logo supplied by the user
 - `assets/shuttle-schedule.jpg` – Dansavanh shuttle van timetable (source for the trip counts)
 - `CONTEXT.md` – this file
 
 ## Not used
-- `lemomo-ai/lemo-opuscar` (film-making toolbox, MP4 output) was reviewed but not used; it needs ffmpeg 7+ and is tuned for Opus 5.5.
+- `lemomo-ai/lemo-opuscar` (film-making toolbox, MP4 output) was reviewed but not used.
+- `ant-design/ant-motion`: only its timing/easing spec was applied, no library code.
